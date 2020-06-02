@@ -2,7 +2,7 @@
 {% load static %}
 <html>
 <head>
-	<title>Ecom</title>
+	<title>BeatCorona</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
 
@@ -63,8 +63,19 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	  <a class="navbar-brand" href="{% url 'store' %}">BeatCorona</a>
+<style>
+		body{
+
+			background-color: #011b33;
+			/* background-image: url('images/corona.jpg'); */
+			height: 100%;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
+
+	<nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark" background-color=black>
+	  <a class="navbar-brand " href="{% url 'store' %}" style="color: #ffc107;font-family:'Comic Sans MS'" >BeatCorona</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -72,7 +83,7 @@
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="{% url 'store' %}">Store <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" href="{% url 'store' %}" style="color: #ffc107;font-family:'Comic Sans MS'" >Store <span class="sr-only">(current)</span></a>
 	      </li>
 
 	    </ul>
@@ -94,7 +105,7 @@
 
 
             {% endblock content %}
-         </div>
+      </div>
 
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
