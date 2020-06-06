@@ -69,9 +69,9 @@
 		</div>
 	</div>
 
-	<script src="https://www.paypal.com/sdk/js?client-id=YOUR-CLIENT-ID&currency=USD&disable-funding=credit"></script>
+ <script src="https://www.paypal.com/sdk/js?client-id=AQl-qeNyCHirzOH0GaDVbQkE2VE6uU72fxD0xy-BHXdvzx_3JyYDJ5uMiXdFpk22JWrjAgnpm3q9ik0s&currency=USD&disable-funding=card"></script>
 
-	<script>
+  <script>
 		var total = '{{order.get_cart_total}}'
         // Render the PayPal button into #paypal-button-container
         paypal.Buttons({
@@ -102,6 +102,26 @@
 
         }).render('#paypal-button-container');
     </script>
+
+    <!-- <div id="paypal-button-container"></div> -->
+
+  <!-- Include the PayPal JavaScript SDK -->
+  <!-- <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+
+        <script>
+            // Render the PayPal button into #paypal-button-container
+            paypal.Buttons({
+
+                style: {
+                    color:  'blue',
+                    shape:  'pill',
+                    label:  'pay',
+                    height: 40
+                }
+
+            }).render('#paypal-button-container');
+        </script> -->
+
 
 	<script type="text/javascript">
 		var shipping = '{{order.shipping}}'
