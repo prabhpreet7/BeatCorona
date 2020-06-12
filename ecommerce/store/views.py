@@ -4,6 +4,15 @@ import json
 import datetime
 from .models import *
 from .utils import cookieCart, cartData, guestOrder
+from rest_framework import routers, serializers, viewsets
+from store.serializers import ProductSerializer
+from django.contrib.auth.models import User
+from store.models import Product
+
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
 def store(request):
 	data = cartData(request)
@@ -26,6 +35,9 @@ def cart(request):
 
 	context = {'items':items, 'order':order, 'cartItems':cartItems}
 	return render(request, 'store/cart.html', context)
+
+def product_info(request):
+    return render(request, 'store/product_info.html')
 
 def checkout(request):
 	data = cartData(request)
