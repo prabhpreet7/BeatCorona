@@ -22,7 +22,9 @@ def store(request):
 	items = data['items']
 
 	products = Product.objects.all()
+    # print(products)
 	context = {'products':products, 'cartItems':cartItems}
+    # print(context)
 	return render(request, 'store/store.html', context)
 
 
@@ -36,8 +38,11 @@ def cart(request):
 	context = {'items':items, 'order':order, 'cartItems':cartItems}
 	return render(request, 'store/cart.html', context)
 
-def product_info(request):
-    return render(request, 'store/product_info.html')
+def product_info(request, pk=None):
+    data=Product.objects.filter(id=pk)
+    context={'data':data}
+    print(context)
+    return render(request, 'store/product_info.html', context)
 
 def checkout(request):
 	data = cartData(request)
