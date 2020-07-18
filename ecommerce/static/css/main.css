@@ -42,6 +42,19 @@ h1,h2,h3,h4,h5,h6,p{
     box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
 } */
 
+.nav-text{
+	color: #faf9f8;
+	font-family:'Comic Sans MS';
+}
+
+.title-color{
+    color: black;
+}
+
+.price-color{
+    color: rgb(37, 35, 35) ;
+}
+
 .thumbnail {
     opacity: 1;
     display: block;

@@ -59,13 +59,20 @@
 		}
 		console.log('Cart:', cart)
 
+		var settheme = localStorage.getItem('theme')
+		console.log(settheme)
+		if (settheme==null){
+			swapMode('main')
+		}
+		else{
+			swapMode(settheme)
+		}
+
 		function swapMode(sheet){
 			// console.log(sheet)
 			var new_sheet="http://127.0.0.1:8000/static/css/"+sheet+".css";
-			console.log(new_sheet)
-			console.log(document.getElementById('mycss').href)
-			document.getElementById('mycss').href=new_sheet
-			console.log(document.getElementById('mycss').href)
+			document.getElementById('mycss').href=new_sheet;
+			localStorage.setItem('theme',sheet);
 		}
 
 	</script>
@@ -76,7 +83,7 @@
 	
 	<nav class="navbar navbar-expand-lg  sticky-top bg-dark" >
 		<!-- <img src="images/corona.jpg" style="height:10%;width:50px;"> -->
-	  <a class="navbar-brand " href="{% url 'store' %}" style="color: #ffc107;font-family:'Comic Sans MS'" >BeatCorona</a>
+	  <a class="navbar-brand nav-text" href="{% url 'store' %}"  >BeatCorona</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -84,12 +91,12 @@
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="{% url 'store' %}" style="color: #ffc107;font-family:'Comic Sans MS'; margin: 15px;" >Store <span class="sr-only">(current)</span></a>
+	        <a class="nav-link nav-text" href="{% url 'store' %}" style=" margin: 15px;" >Store <span class="sr-only">(current)</span></a>
 		  </li>
 		  <!-- <button><a href="{% url 'store' %}" style="color: #ffc107;font-family:'Comic Sans MS';  background-color: transparent; outline: none; margin: 10px;" >Store <span class="sr-only">(current)</span></a></button> -->
 
-		  <button onclick="swapMode('main_dark')" style="color: #ffc107;font-family:'Comic Sans MS'; background-color: transparent; outline: none; margin: 10px;">Dark Mode</button>
-		  <button onclick="swapMode('main')" style="color: #ffc107;font-family:'Comic Sans MS'; background-color: transparent; outline: none; margin: 10px;">   Light Mode</button>
+		  <button class='nav-text' onclick="swapMode('main_dark')" style="background-color: transparent; outline: none; margin: 10px;">Dark Mode</button>
+		  <button class='nav-text' onclick="swapMode('main')" style="background-color: transparent; outline: none; margin: 10px;">   Light Mode</button>
 
 		</ul>
 

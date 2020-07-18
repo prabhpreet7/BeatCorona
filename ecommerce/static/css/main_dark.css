@@ -25,6 +25,14 @@ h1,h2,h3,h4,h5,h6,p{
 	padding: 10px;
 }
 
+.title-color{
+    color: white;
+}
+
+.nav-text{
+	color:#ffc107;
+	font-family:'Comic Sans MS';
+}
 
 .default {
   border-color: #e7e7e7;
