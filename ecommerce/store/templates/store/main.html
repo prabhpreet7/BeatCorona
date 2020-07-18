@@ -8,7 +8,8 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link id='mycss' rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/static/css/main_dark.css">
+	
 
 	<script type="text/javascript">
 		var user = '{{request.user}}'
@@ -58,22 +59,21 @@
 		}
 		console.log('Cart:', cart)
 
+		function swapMode(sheet){
+			// console.log(sheet)
+			var new_sheet="http://127.0.0.1:8000/static/css/"+sheet+".css";
+			console.log(new_sheet)
+			console.log(document.getElementById('mycss').href)
+			document.getElementById('mycss').href=new_sheet
+			console.log(document.getElementById('mycss').href)
+		}
+
 	</script>
 
 </head>
 <body>
 
-<style>
-		body{
-
-			background-color: #f8f9fa;
-			/* background-image: url('images/corona.jpg'); */
-			height: 100%;
-			background-repeat: no-repeat;
-			background-size: cover;
-		}
-	</style>
-
+	
 	<nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark" background-color=black>
 		<!-- <img src="images/corona.jpg" style="height:10%;width:50px;"> -->
 	  <a class="navbar-brand " href="{% url 'store' %}" style="color: #ffc107;font-family:'Comic Sans MS'" >BeatCorona</a>
@@ -84,10 +84,15 @@
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="{% url 'store' %}" style="color: #ffc107;font-family:'Comic Sans MS'" >Store <span class="sr-only">(current)</span></a>
-	      </li>
+	        <a class="nav-link" href="{% url 'store' %}" style="color: #ffc107;font-family:'Comic Sans MS'; margin: 15px;" >Store <span class="sr-only">(current)</span></a>
+		  </li>
+		  <!-- <button><a href="{% url 'store' %}" style="color: #ffc107;font-family:'Comic Sans MS';  background-color: transparent; outline: none; margin: 10px;" >Store <span class="sr-only">(current)</span></a></button> -->
 
-	    </ul>
+		  <button onclick="swapMode('main_dark')" style="color: #ffc107;font-family:'Comic Sans MS'; background-color: transparent; outline: none; margin: 10px;">Dark Mode</button>
+		  <button onclick="swapMode('main')" style="color: #ffc107;font-family:'Comic Sans MS'; background-color: transparent; outline: none; margin: 10px;">   Light Mode</button>
+
+		</ul>
+
 	    <div class="form-inline my-2 my-lg-0">
 	     	<!-- <a href="#"class="btn btn-warning">Login</a> -->
 
