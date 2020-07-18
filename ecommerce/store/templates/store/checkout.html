@@ -56,11 +56,14 @@
 			<div class="box-element">
 				<a  class="btn btn-outline-light" href="{% url 'cart' %}" style="color: #adb5bd">&#x2190; Back to Cart</a>
 				<hr>
+			</br>
+
 				<h3>Order Summary</h3>
+			</br>
 				<hr>
 				{% for item in items %}
 				<div class="cart-row">
-					<!-- <div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div> -->
+					<div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div>
 					<div style="flex:2"><p>{{item.product.name}}</p></div>
 					<div style="flex:1"><p>₹{{item.product.price|floatformat:2}}</p></div>
 					<div style="flex:1"><p>x{{item.quantity}}</p></div>

@@ -55,6 +55,10 @@ h1,h2,h3,h4,h5,h6,p{
     color: rgb(37, 35, 35) ;
 }
 
+.nav-text:hover{
+	color:#1c19e2;
+	font-family:'Comic Sans MS';
+}
 .thumbnail {
     opacity: 1;
     display: block;
@@ -105,8 +109,9 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 .row-image{
-	width: 100px;
-}
+    width:100px;
+    height:100px;
+ }
 
 .form-field{
 	width:250px;
@@ -160,7 +165,7 @@ transition: 0.5s ease;
 }
 
 .brighten img {
--webkit-filter: brightness(50%);
+-webkit-filter: brightness(75%);
 -webkit-transition: all 1s ease;
 -moz-transition: all 1s ease;
 -o-transition: all 1s ease;
