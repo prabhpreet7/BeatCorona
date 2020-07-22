@@ -1,0 +1,82 @@
+{% extends 'store/main.html' %}
+{% load static %}
+
+
+{% block content %}
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+<!-- Jumbotron -->
+<div class="card card-image" style="background-image: url('images/sale.jpg');no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   background-size: cover;
+   -o-background-size: cover;">
+  <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+    <div class="py-5">
+
+      <h5 class="h5 orange-text jumbo"><i class="fas fa-camera-retro"></i> It's Here</h5>
+      <h1 class="card-title h2 my-4 py-2 jumbo">Get Ready for the Biggest Sale of this Summer!</h1>
+
+      <a class="btn default" href="#product" style="color:white">Shop</a>
+    </div>
+  </div>
+</div>
+<!-- <br>
+<br>
+<br> -->
+
+<!-- <div class="container" >
+
+	<div class="row" id="home_section">
+		{% for product in products %}
+
+		<div class="col-lg-4 col-md-offset-2" style="background-color:#f8f9fa" >
+			<div class="card grow brighten w-100" Style="height: 100%"">
+			  <img class="thumbnail" src="{{product.imageURL}}">
+			  <div class="card-body box-element product">
+			    <h5><strong>{{product.name}}</strong></h5>
+			    <p class="card-text">{{product.info}}</p>
+					<button  data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+
+					<a class="btn btn-outline-success" href="#">View</a>
+					<h4 style="display: inline-block; float: right"><strong>₹{{product.price|floatformat:2}}</strong></h4>
+
+			  </div>
+			</div>
+
+		</div>
+		{% endfor %}
+	</div>
+</div> -->
+
+<section class="text-gray-700 body-font" id='product'>
+
+  <div class="container px-5 py-24 mx-auto">
+
+    <div class="flex flex-wrap -m-4">
+      {% for product in products %}
+      <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+        <div class="card grow brighten w-100" >
+          <a href="{% url 'product_info' pk=product.pk %}">  <img class="thumbnail" src="{{product.imageURL}}"> </a>
+        </div>
+          <!-- <a class="block relative h-48 rounded overflow-hidden">
+          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/420x260">
+        </a> -->
+
+        <div class="mt-4">
+          <button data-product="{{product.id}}" data-action="add" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded update-cart" style='float:right; display: inline-block;'>Add</button>
+          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">Custom</h3>
+          <h2 class="title-color title-font text-lg font-medium">{{product.name}}</h2>
+          <p class="price-color mt-1"><strong>₹{{product.price|floatformat:2}}</strong></p>
+
+          <!-- <button  data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button> -->
+        </div>
+
+      </div>
+{% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% endblock content %}
