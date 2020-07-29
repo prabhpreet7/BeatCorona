@@ -8,7 +8,7 @@ from rest_framework import routers, serializers, viewsets
 from store.serializers import ProductSerializer
 from django.contrib.auth.models import User
 from store.models import Product
-
+from django.db.models import Q
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
@@ -20,12 +20,30 @@ def store(request):
 	cartItems = data['cartItems']
 	order = data['order']
 	items = data['items']
+	flag=True
 
-	products = Product.objects.all()
-    # print(products)
-	context = {'products':products, 'cartItems':cartItems}
+	if request.GET:
+		products = search_store(request.GET['name'])
+		flag=False
+		print(request.GET['name'])
+		# products= search_store(request)
+	else:
+		products = Product.objects.all()
+
+	context = {'products':products, 'cartItems':cartItems, 'flag':flag}
     # print(context)
 	return render(request, 'store/store.html', context)
+
+
+def search_store(query):
+	query_set=[]
+	queries= query.split(' ')
+	for q in queries:
+		pro= Product.objects.filter(Q(name__icontains=query)).distinct()
+		for item in pro:
+			query_set.append(item)
+	return (list(set(query_set)))
+
 
 
 def cart(request):
